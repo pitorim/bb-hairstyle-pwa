@@ -86,3 +86,12 @@ Report the results of this check when delivering.
 7. Does the title sound like a paradox?
 8. Is there a moment where the story connects directly to the viewer ("you")?
 9. Does every narration line have a visible character reaction?
+
+## Narrator voice
+Default narrator for every Benny Bits video (approved; matched to the Eiffel Tower short's narrator).
+- Engine: Kokoro TTS v1.0 (`kokoro-onnx`, files `kokoro-v1.0.onnx` + `voices-v1.0.bin`), lang `en-us`, 24 kHz.
+- Voice: 50/50 style blend → `k.get_voice_style('am_eric') * 0.5 + k.get_voice_style('am_puck') * 0.5`.
+- Post-processing (ffmpeg): `rubberband=pitch=2^(4.4/12):formant=preserved:pitchq=quality,highshelf=f=3000:g=2`, then a light compressor (`acompressor=threshold=-20dB:ratio=3:attack=5:release=80`).
+- Speed: 1.21 reproduces the reference pace (~220 wpm). For a 45–60 s short use ~1.0–1.05 (≈160–170 wpm) so the length rule still holds.
+- Generate per sentence/phrase and insert the pauses yourself (~0.25 s between sentences, ~0.5 s before punchlines and after questions); transcribe with faster-whisper for word timestamps.
+- If the user sends their own recording (e.g. ElevenLabs), use that instead.
