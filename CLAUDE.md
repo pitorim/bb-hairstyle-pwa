@@ -95,3 +95,15 @@ Default narrator for every Benny Bits video (approved; matched to the Eiffel Tow
 - Speed: 1.21 reproduces the reference pace (~220 wpm). For a 45–60 s short use ~1.0–1.05 (≈160–170 wpm) so the length rule still holds.
 - Generate per sentence/phrase and insert the pauses yourself (~0.25 s between sentences, ~0.5 s before punchlines and after questions); transcribe with faster-whisper for word timestamps.
 - If the user sends their own recording (e.g. ElevenLabs), use that instead.
+
+## Visual style
+Approved look for every Benny Bits video (replaces the earlier "cute" toon style).
+- **Colors: bright, saturated, high contrast.** Daytime = clear saturated blue sky with white clouds and warm ground. Sunset/dusk = vivid orange / pink / purple sky. Never a dull brown, sepia or muddy grade; keep haze light.
+- **Characters: hand-drawn ink look.** Rough, slightly "boiling" ink outlines with varying thickness; small round heads with no neck; thin noodle limbs; dark gloves and boots; no blush, nothing cute. Faces have attitude: grumpy, smug, sarcastic, heavy-lidded, gritted teeth, side-eye. Characters are fully opaque and crisp (no depth blur on characters).
+- **Character contrast:** clothing colors that contrast with the scene (e.g. red shirt / blue overalls against gold wheat, khaki against blue sky), plus a subtle light halo (rim light) around every character so they pop off the background. Characters cast long shadows and are lit by the scene's light.
+- **Camera: low, dramatic angles.** Objects pointing at the camera (guns, fingers), characters on the left/right third, 3/4 turns, leaning into the action. Never a character standing centered and facing the camera straight on. Every shot still moves (push-in, pull-out, pan, tracking).
+- **Foreground:** no huge blurred shapes. Any foreground element stays small and only slightly blurred. Background depth-of-field blur is gentle so the set stays readable.
+- **Interaction:** characters sit, lean, eat, hold props and react to the set; props are recognizable and period-correct (e.g. a 1930s Lewis gun: straight cylindrical shroud, flat pan magazine on top, wooden stock, metallic shine).
+- **On-screen text:** bold word-by-word captions (thick white text, strong dark outline, ~88 px, normal case; key words in yellow). At most 1–2 big text overlays per video (the title in the first 2.5 s counts as one).
+- **Cuts:** hard cuts (optionally with a quick camera settle) — no semi-transparent crossfades.
+- Pipeline: one still 3D plate per shot (Blender/Cycles) + per-frame anchors; 2D ink characters and all camera moves animated in compositing (Remotion).
